@@ -1,0 +1,24 @@
+{
+  "name": "empath",
+  "version": "0.0.0",
+  "description": "A cli tool that detects what module systems a particular Javascript library supports.",
+  "main": "index.js",
+  "dependencies": {
+    "jsdom": "~0.6.5",
+    "async": "~0.2.9"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/airportyh/empath.git"
+  },
+  "keywords": [
+    "modules"
+  ],
+  "author": "Toby Ho",
+  "license": "MIT",
+  "gitHead": "9edb73772b185f0d9ac49c55eeb08bd8c18f2d44"
+}
