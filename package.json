@@ -2,32 +2,28 @@
   "name": "empath",
   "version": "0.0.0",
   "description": "A cli tool that detects what module systems a particular Javascript library supports.",
-  "main": "index.js",
+  "bin": {
+    "empath": "bin/empath.js"
+  },
   "dependencies": {
     "jsdom": "~0.6.5",
-    "deep-equal": "0.0.0"
+    "deep-equal": "0.0.0",
+    "colors": "~0.6.0-1"
   },
   "devDependencies": {
     "chai": "~1.7.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha tests -u tdd -R tap"
   },
   "repository": {
     "type": "git",
     "url": "git://github.com/airportyh/empath.git"
   },
   "keywords": [
-    "modules"
+    "javascript modules tools cli"
   ],
   "author": "Toby Ho",
   "license": "MIT",
-  "gitHead": "9edb73772b185f0d9ac49c55eeb08bd8c18f2d44",
-  "volo": {
-    "dependencies": {
-      "jquery": "github:jquery/jquery/2.0.2",
-      "underscore": "github:documentcloud/underscore/1.4.4",
-      "backbone": "github:documentcloud/backbone/1.0.0"
-    }
-  }
+  "gitHead": "9edb73772b185f0d9ac49c55eeb08bd8c18f2d44"
 }
