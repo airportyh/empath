@@ -1,7 +1,6 @@
 src_files:
 - lib/*.js
-- tests/*.js
-- tests/fixtures/*
+- tests/**/*
 launchers:
   mocha:
     command: mocha tests -u tdd -R tap

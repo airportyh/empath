@@ -4,9 +4,12 @@
   "description": "A cli tool that detects what module systems a particular Javascript library supports.",
   "main": "index.js",
   "dependencies": {
-    "jsdom": "~0.6.5"
+    "jsdom": "~0.6.5",
+    "deep-equal": "0.0.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "chai": "~1.7.0"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -19,5 +22,12 @@
   ],
   "author": "Toby Ho",
   "license": "MIT",
-  "gitHead": "9edb73772b185f0d9ac49c55eeb08bd8c18f2d44"
+  "gitHead": "9edb73772b185f0d9ac49c55eeb08bd8c18f2d44",
+  "volo": {
+    "dependencies": {
+      "jquery": "github:jquery/jquery/2.0.2",
+      "underscore": "github:documentcloud/underscore/1.4.4",
+      "backbone": "github:documentcloud/backbone/1.0.0"
+    }
+  }
 }

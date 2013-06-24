@@ -50,6 +50,6 @@ suite('detect commonjs', function(){
 })
 
 function check(filename, callback){
-  var content = fs.readFileSync(path.join(__dirname, 'fixtures/' + filename + '.js'))
+  var content = fs.readFileSync(path.join(__dirname, 'fixtures/scripts/' + filename + '.js'))
   detectCommonJS(filename, content, callback)
 }

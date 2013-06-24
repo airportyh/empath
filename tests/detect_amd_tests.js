@@ -52,6 +52,6 @@ suite('detect amd', function(){
 
 
 function check(filename, callback){
-  var content = fs.readFileSync(path.join(__dirname, 'fixtures/' + filename + '.js'))
+  var content = fs.readFileSync(path.join(__dirname, 'fixtures/scripts/' + filename + '.js'))
   detectAMD(filename, content, callback)
 }
