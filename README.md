@@ -27,6 +27,8 @@ You've got a Javascript library sitting there in a directory called backbone. Ma
     Globals variables exported
       Backbone
 
+Ah, okay. Empath tells you that the main file to include is: `backbone.js` at the root of the directory and that it does not support the AMD module format but does support the CommonJS format and depends on underscore. Or if you don't use a module system and just want to include it in a script tag, then it exports `Backbone` as a global variable.
+
 ## Background Information
 
 ### Module Format
