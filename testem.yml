@@ -1,0 +1,10 @@
+src_files:
+- lib/*.js
+- tests/*.js
+- tests/fixtures/*
+launchers:
+  mocha:
+    command: mocha tests -u tdd -R tap
+    protocol: tap
+launch_in_dev:
+- mocha
