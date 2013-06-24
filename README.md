@@ -9,7 +9,7 @@ Currently in the Javascript community there is simply no concenses about modules
 
 ## Usage
 
-You've got a Javascript library sitting there in a directory `backbone`. Maybe you downloaded it using a package manager or cloned it using git or downloaded it as a tarball from github. How do you use it?
+You've got a Javascript library sitting there in a directory called backbone. Maybe you downloaded it using a package manager or cloned it using git or downloaded it as a tarball from github. How do you use it?
 
     $ empath backbone # give it the path of the directory
     Searching for main in backbone
