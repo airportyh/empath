@@ -1,0 +1,6 @@
+{
+  "main": "package.js",
+  "jam": {
+    "main": "package_jam.js"
+  }
+}

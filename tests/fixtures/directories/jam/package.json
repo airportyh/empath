@@ -1,0 +1,6 @@
+{
+  "main": "foo.js",
+  "jam": {
+    "main": "bar.js"
+  }
+}
