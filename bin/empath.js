@@ -6,71 +6,67 @@ var path = require('path')
 var detectAMD = require('../lib/detect_amd')
 var detectCommonJS = require('../lib/detect_commonjs')
 var detectGlobals = require('../lib/detect_globals')
+var detectMain = require('../lib/detect_main')
+var indent = require('../lib/strutils').indent
 
 var dir = process.argv[2]
 
 console.log(('Searching for main in ' + dir).grey)
-var main = findMainFrom(path.join(dir, 'bower.json'))
-if (!main){
-  main = findMainFrom(path.join(dir, 'component.json'))
-}
-if (!main){
-  main = findMainFrom(path.join(dir, 'package.json'))
-}
-
-if (!main){
-  console.error('main not found :('.red)
-  process.exit(1)
-}
-
-if (Array.isArray(main)){
-  main = main[0]
-}
-var mainpath = path.join(dir, main)
-var contents = fs.readFileSync(mainpath)
-detectAMD(main, contents, function(err, result){
-  if (err){
-    console.error(err)
+detectMain(dir, function(err, mains){
+  console.log('Candidates for main: ')
+  console.log(indent(mains.join('\n').green))
+  if (!mains.length === 0){
+    console.error('main not found :('.red)
+    process.exit(1)
   }
-  console.log('Supports AMD?')
-  console.log('  ' + yesno(result.amd, true))
-  if (result.amd){
-    if (result.dependencies.length > 0){
-      console.log(('  dependencies: ' + result.dependencies.join(', ')).green)
+  var main
+  function next(){
+    main = mains.shift()
+    if (main){
+      console.log('Scanning ' + main)
+      detectModuleSystem(dir, main, next)
     }
   }
-  detectCommonJS(main, contents, function(err, result){
+  next()
+})
+
+function detectModuleSystem(dir, main, callback){
+  var mainpath = path.join(dir, main)
+  var contents = fs.readFileSync(mainpath)
+  detectAMD(main, contents, function(err, result){
     if (err){
       console.error(err)
     }
-    console.log('Supports CommonJS?')
-    console.log('  ' + yesno(result.commonjs, true))
-    if (result.commonjs){
+    console.log('  Supports AMD?')
+    console.log('    ' + yesno(result.amd, true))
+    if (result.amd){
       if (result.dependencies.length > 0){
-        console.log(('  dependencies: ' + result.dependencies.join(', ')).green)
+        console.log(('    dependencies: ' + result.dependencies.join(', ')).green)
       }
-      console.log(('  exports a ' + (typeof result.exports)).green)
     }
-    detectGlobals(main, contents, function(err, result){
-      console.log('Globals variables exported')
-      console.log('  ' + result.exports.join(', ').green)
+    detectCommonJS(main, contents, function(err, result){
+      if (err){
+        console.error(err)
+      }
+      console.log('  Supports CommonJS?')
+      console.log('    ' + yesno(result.commonjs, true))
+      if (result.commonjs){
+        if (result.dependencies.length > 0){
+          console.log(('    dependencies: ' + result.dependencies.join(', ')).green)
+        }
+        console.log(('    exports a ' + (typeof result.exports)).green)
+      }
+      detectGlobals(main, contents, function(err, result){
+        console.log('  Globals variables exported')
+        if (result.exports.length > 0){
+          console.log('    ' + (result.exports.join(', ')).green)
+        }else{
+          console.log('    none'.red)
+        }
+        callback()
+      })
     })
   })
-})
-
-function findMainFrom(filepath){
-  var exists = fs.existsSync(filepath)
-  console.log(('has ' + filepath + '? ' + yesno(exists)).grey)
-  if (exists){
-    var config = JSON.parse(String(fs.readFileSync(filepath)))
-    var main = (config.jam && config.jam.main) || config.main
-    if (main){
-      console.log(('Main found in ' + filepath + ': ' + main).green)
-    }else{
-      console.log(('No main found in ' + filepath).grey)
-    }
-  }
-  return main
 }
 
 function yesno(bool, colored){

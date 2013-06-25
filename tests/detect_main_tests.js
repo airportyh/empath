@@ -61,6 +61,13 @@ suite('detect main', function(){
     })
   })
 
+  test('dedup', function(done){
+    get('dedup', function(err, main){
+      assert.deepEqual(main, ['index.js'])
+      done()
+    })
+  })
+
 })
 
 function get(name, callback){
