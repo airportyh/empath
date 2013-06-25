@@ -34,7 +34,7 @@ suite('detect amd', function(){
   'global_export commonjs_basic'.split(' ').forEach(function(filename){
     test('no amd - ' + filename, function(done){
       check(filename, function(err, result){
-        assert(result)
+        assert(result, 'has result')
         assert.equal(result.amd, false)
         done()
       })
@@ -43,7 +43,7 @@ suite('detect amd', function(){
 
   test('error', function(done){
     check('syntax_error', function(err, result){
-      assert(err)
+      assert.match(err, /SyntaxError/)
       done()
     })
   })

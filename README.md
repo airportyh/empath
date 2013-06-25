@@ -43,7 +43,7 @@ On the issue of *module format*, there are generally three camps:
 
 Here is a list of the most popular package registries for Javascript
 
-* [NPM](https://npmjs.org/) - the registry for Node modules, currently the most popular JS registry, but the modules are generally not intended for use in the browser. However, Browserify has been a popular tool in re-targeting Node-style Javascript for browser use. Format: CommonJS.
+* [NPM](https://npmjs.org/) - the registry for Node modules, currently the most popular JS registry, but the modules are generally not intended for use in the browser. However, [Browserify](https://github.com/substack/node-browserify) has been a popular tool in re-targeting Node-style Javascript for browser use. Format: CommonJS.
 * [Jam](http://jamjs.org/) - A registry and package manager with a easy workflow. AMD-based.
 * [Bower](http://bower.io/) - a new registry by Twitter. Format agnostic but does nothing for workflow.
 * [Component](https://github.com/component/component) - the only front-end module registry using CommonJS. Requires a build step.
