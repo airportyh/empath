@@ -35,7 +35,7 @@ Ah, okay. Empath tells you that the main file to include is: `backbone.js` at th
 
 On the issue of *module format*, there are generally three camps:
 
-1. (AMD(Require.js))[http://requirejs.org/docs/whyamd.html]
+1. [AMD(Require.js)](http://requirejs.org/docs/whyamd.html)
 2. CommonJS(Node)
 3. We don't need a module system, just add globals
 
