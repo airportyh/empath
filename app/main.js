@@ -1,9 +1,4 @@
-var Backbone = require('backbone')
 
-var m = new Backbone.Model({name: 'bob'})
+var handlebars = require('handlebars')
 
-m.on('change:name', function(model, val){
-  console.log('changed to', val)
-})
-
-m.set('name', 'james')
+console.log(handlebars)
