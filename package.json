@@ -1,6 +1,6 @@
 {
   "name": "empath",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A cli tool that detects what module systems a particular Javascript library supports.",
   "bin": {
     "empath": "bin/empath.js"
