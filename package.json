@@ -5,6 +5,7 @@
   "bin": {
     "empath": "bin/empath.js"
   },
+  "main": "lib/index.js",
   "dependencies": {
     "jsdom": "~0.6.5",
     "deep-equal": "0.0.0",
