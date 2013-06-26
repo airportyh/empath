@@ -11,7 +11,8 @@
     "deep-equal": "0.0.0",
     "colors": "~0.6.0-1",
     "set": "~1.0.0",
-    "commander": "*"
+    "commander": "*",
+    "async": "~0.2.9"
   },
   "devDependencies": {
     "chai": "~1.7.0"
@@ -28,5 +29,10 @@
   ],
   "author": "Toby Ho",
   "license": "MIT",
-  "gitHead": "9edb73772b185f0d9ac49c55eeb08bd8c18f2d44"
+  "gitHead": "9edb73772b185f0d9ac49c55eeb08bd8c18f2d44",
+  "volo": {
+    "dependencies": {
+      "cajon": "github:requirejs/cajon/0.1.5"
+    }
+  }
 }
