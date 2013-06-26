@@ -37,7 +37,7 @@ On the issue of *module format*, there are generally three camps:
 
 1. [AMD(Require.js)](http://requirejs.org/docs/whyamd.html)
 2. CommonJS(Node)
-3. We don't need a module system, just add globals
+3. We don't need a module system, just use script tags and add globals
 
 ### Registry
 
