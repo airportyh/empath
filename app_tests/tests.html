@@ -1,0 +1,14 @@
+<h1>Test Cajon Setup</h1>
+<link rel="stylesheet" href="jasmine.css">
+<script src="jasmine.js"></script>
+<script src="/testem.js"></script>
+<script src="jasmine-html.js"></script>
+<script src="../cajon.js"></script>
+<script src="../cajon.config.js"></script>
+<script>
+require(['./tests.js'], function(){
+  var env = jasmine.getEnv()
+  env.addReporter(new jasmine.HtmlReporter)
+  env.execute()
+})
+</script>

@@ -1,3 +1,3 @@
-module.exports = function(){
-  return 'hello world'
+module.exports = function(name){
+  return 'hello ' + (name || 'world')
 }
