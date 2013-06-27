@@ -72,5 +72,5 @@ suite('detect main', function(){
 
 function get(name, callback){
   var dirpath = path.join(__dirname, 'fixtures/directories/' + name)
-  detectMain(dirpath, callback)
+  detectMain(dirpath, false, callback)
 }

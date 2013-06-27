@@ -34,5 +34,5 @@ suite('empath', function(){
 function check(dir, callback){
   var dir = path.join(__dirname,
       'fixtures/directories/' + dir)
-  empath(dir, callback)
+  empath(dir, false, callback)
 }

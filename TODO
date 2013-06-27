@@ -1,10 +1,5 @@
 TODO
 ====
 
-* Handling logging nicely.
-* Make output easier to understand.
-
-
-
 * get dependencies info from bower.json, component.json and package.json as well
 * If still can't find main, walk directory to find a .js file with same basename as directory.
