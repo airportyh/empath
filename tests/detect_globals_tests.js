@@ -24,5 +24,5 @@ suite('detect globals', function(){
 
 function check(filename, callback){
   var content = fs.readFileSync(path.join(__dirname, 'fixtures/scripts/' + filename + '.js'))
-  detectGlobals(filename, content, callback)
+  detectGlobals(content, callback)
 }
