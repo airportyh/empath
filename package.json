@@ -17,7 +17,7 @@
     "chai": "~1.7.0"
   },
   "scripts": {
-    "test": "mocha tests -u tdd"
+    "test": "mocha tests -u tdd -R nyan"
   },
   "repository": {
     "type": "git",
