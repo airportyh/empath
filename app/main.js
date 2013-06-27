@@ -1,4 +1,3 @@
 
-var handlebars = require('handlebars')
-
-console.log(handlebars)
+var angular = require('angular')
+console.log(angular)
