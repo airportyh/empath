@@ -10,7 +10,8 @@
     "jsdom": "~0.6.5",
     "deep-equal": "0.0.0",
     "colors": "~0.6.0-1",
-    "set": "~1.0.0"
+    "set": "~1.0.0",
+    "commander": "*"
   },
   "devDependencies": {
     "chai": "~1.7.0"

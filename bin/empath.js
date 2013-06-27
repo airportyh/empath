@@ -12,20 +12,41 @@ var renderList = strutils.renderList
 
 program
   .version(require(__dirname + '/../package').version)
-  .usage(['<directory>'])
+  .usage(['<file or directory>'])
   .option('-v, --verbose', 'verbose output')
 
 program.parse(process.argv)
 
-var dir = program.args[0]
+var dir_or_file = program.args[0]
 
-if (!dir){
+if (!dir_or_file){
   program.outputHelp()
 }else{
-  main(dir, program.verbose)
+  main(dir_or_file, program.verbose)
 }
 
-function main(dir, verbose){
+function main(dir_or_file, verbose){
+  try{
+    var stat = fs.statSync(dir_or_file)
+    if (stat.isFile()){
+      scanFile(dir_or_file, verbose)
+    }else{
+      scanDirectory(dir_or_file, verbose)
+    }
+  }catch(e){
+    console.error(e.message.red)
+    return process.exit(1)
+  }
+}
+
+function scanFile(file, verbose){
+  empath.scanFile(file, function(err, info){
+    console.log(('Scanning file ' + file).grey)
+    console.log(displayMainFileInfo(info, true))
+  })
+}
+
+function scanDirectory(dir, verbose){
   console.log(('Scanning directory ' + dir).grey)
   empath(dir, {verbose: verbose}, function(err, info){
     if (err) return console.err(err)
