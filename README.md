@@ -31,7 +31,7 @@ Ah, okay. Empath tells you that the main file to include is: `backbone.js` at th
 
 ## Programatic API
 
-There's also a programmatic API:
+There's also a programmatic API. To scan the directory components/backbone:
 
     var empath = require('empath');
 
@@ -46,6 +46,18 @@ There's also a programmatic API:
         console.log('Other main files that were ruled out:', results.rest);
       }
     });
+
+Or to scan a single .js file:
+
+    var empath = require('empath');
+
+    empath.scanFile('three.js', function(err, results){
+      console.log('Supports AMD?', !!results.amd);
+      console.log('AMD dependencies:', results.amd.dependencies);
+      console.log('Supports CommonJS?', !!results.commonjs);
+      console.log('CommonJS dependencies:', results.commonjs.dependencies);
+      console.log('Global variables exported:', results.globals);
+    })
 
 ## Background Information
 
