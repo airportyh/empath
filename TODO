@@ -1,5 +1,8 @@
 TODO
 ====
 
+* rename globals to standalone.
+* we need to detect modules that won't work standalone.
+* we need to maybe execute the dependencies along with the files too if we want everything to work(ember.js)
 * get dependencies info from bower.json, component.json and package.json as well
 * If still can't find main, walk directory to find a .js file with same basename as directory.
